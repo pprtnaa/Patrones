@@ -7,27 +7,28 @@
 package patrones;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  * 
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * @author Alex Gomez
  */
-public class ArrayA {
-    ArrayList<Integer> ArrayB;
-    public int numero;
+public class ArrayA extends Observable {
+    public ArrayList<Integer> ArrayB;
     public Operacion tipoOperacion;
+
     
     public void setOperacion(Operacion op){
         this.tipoOperacion = op;
     }
-    
     public void ejecutarOperacion(){
-        this.numero = this.tipoOperacion.realizarOperacion(ArrayB);
-        System.out.println("la suma es " + numero);
+        this.tipoOperacion.realizarOperacion(ArrayB);
     }
     
-    public void listaB(ArrayList lisb){
+    public void agregarListaB(ArrayList lisb){
         this.ArrayB = lisb;
+        setChanged();
+        notifyObservers();
     }
 
 }

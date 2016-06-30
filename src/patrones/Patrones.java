@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * @author Alex Gomez
  */
 public class Patrones {
 
@@ -18,12 +18,19 @@ public class Patrones {
      */
     public static void main(String[] args) {
         ArrayA listaA = new ArrayA();
-        listaA.setOperacion(new Suma());
         ArrayList<Integer> listab = new ArrayList();
         listab.add(2);
         listab.add(2);
-        listaA.listaB(listab);
-        listaA.ejecutarOperacion();
+        listab.add(4);
+        listab.add(3);
+        
+        ObservadorEspecifico obA = new ObservadorEspecifico(listaA,new Suma());
+        ObservadorEspecifico obB = new ObservadorEspecifico(listaA,new Resta());
+        
+        listaA.addObserver(obA);
+        listaA.addObserver(obB);
+        
+        listaA.agregarListaB(listab);
         
     }
     

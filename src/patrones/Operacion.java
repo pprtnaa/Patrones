@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * @author Alex Gomez
  */
 public interface Operacion {
     public int realizarOperacion(ArrayList lista);

@@ -12,16 +12,18 @@ import java.util.ArrayList;
  * 
  * @author Alex Gomez
  */
-public class Suma implements Operacion{
-    private int numero = 0;
+public class Resta implements Operacion{
+    private int numero;
+
     @Override
     public int realizarOperacion(ArrayList lista) {
-        lista.stream().forEach((lista1) -> {
-            numero = numero + (Integer)lista1;
+        lista.stream().forEach((lista1)-> {
+            numero =  (Integer)lista1 - numero;
         });
         
-        System.out.println("El resultado de la suma es " + numero);
+        System.out.println("El resultado de la resta es " + numero);
         return numero;
-    } 
+        
+    }
 
 }
